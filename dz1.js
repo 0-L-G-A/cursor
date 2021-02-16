@@ -23,16 +23,14 @@ console.log(`Price of all goods without coins is  ${priceOfAllGoodsWithoutCoins}
 function ceilTo100(num){
     return Math.ceil(num/100)*100
 }
-console.log("Sum rounded to 100 -", (ceilTo100(price1)));
-console.log(`Sum rounded to 100 -`, (ceilTo100(price2)));
-console.log(`Sum rounded to 100 -`, (ceilTo100(price3)));
+console.log("Sum rounded to 100 -", (ceilTo100(priceOfAllGoodsWithoutCoins)));
 
 
 const ostacha = priceOfAllGoodsWithoutCoins % 2;
 console.log("Is the sum of all goods an even number? ");
 ostacha === 0 ? console.log(true) : console.log(false);
 
-console.log(`The rest from 500 is`, (500 - priceOfAllGoods));
+console.log(`The rest from 500 is`, (500 - priceOfAllGoods).toFixed(2));
 
 const price111 = Number(price1.toFixed(2));
 const price222 = Number(price2.toFixed(2));
