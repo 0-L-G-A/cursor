@@ -21,7 +21,7 @@ console.log(`Price of all goods without coins is  ${priceOfAllGoodsWithoutCoins}
  
 
 function ceilTo100(num){
-    return Math.ceil(num/100)*100
+    return Math.round(num/100)*100
 }
 console.log("Sum rounded to 100 -", (ceilTo100(priceOfAllGoodsWithoutCoins)));
 
