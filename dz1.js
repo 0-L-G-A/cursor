@@ -1,22 +1,21 @@
-const price1 = 15.678;
-const price2 = 123.965;
-const price3 = 90.2345;
+const applePrice = 15.678;
+const avokadoPrice = 123.965;
+const mangoPrice = 90.2345;
 
-const maxPrice = Math.max(price1, price2, price3);
+const maxPrice = Math.max(applePrice, avokadoPrice, mangoPrice);
+const minPrice = Math.min(applePrice, avokadoPrice, mangoPrice);
+const priceOfAllGoods = mangoPrice + avokadoPrice + applePrice;
+
 console.log(`Max price is ${maxPrice}`);
-
-const minPrice = Math.min(price1, price2, price3);
 console.log(`Min price is  ${minPrice}`);
-
-const priceOfAllGoods = price3 + price2 + price1;
 console.log(`Price of all goods is  ${priceOfAllGoods}`);
 
 
-const price11 = parseInt(price1);
-const price22 = parseInt(price2);
-const price33 = parseInt(price3);
+const roundedApplePrice = parseInt(applePrice);
+const roundedAvokadoPrice = parseInt(avokadoPrice);
+const roundedMangoPrice = parseInt(mangoPrice);
 
-const priceOfAllGoodsWithoutCoins = price33 + price22 + price11;
+const priceOfAllGoodsWithoutCoins = roundedMangoPrice + roundedAvokadoPrice + roundedApplePrice;
 console.log(`Price of all goods without coins is  ${priceOfAllGoodsWithoutCoins}`);
  
 
@@ -25,26 +24,28 @@ function ceilTo100(num){
 }
 console.log("Sum rounded to 100 -", (ceilTo100(priceOfAllGoodsWithoutCoins)));
 
+let isSumEven = true;
+if (priceOfAllGoodsWithoutCoins % 2 !== 0){
+    isSumEven = false;
+}
+console.log(`Is the sum of all goods an even number? ${isSumEven} `);
 
-const ostacha = priceOfAllGoodsWithoutCoins % 2;
-console.log("Is the sum of all goods an even number? ");
-ostacha === 0 ? console.log(true) : console.log(false);
 
 console.log(`The rest from 500 is`, (500 - priceOfAllGoods).toFixed(2));
 
-const price111 = Number(price1.toFixed(2));
-const price222 = Number(price2.toFixed(2));
-const price333 = Number(price3.toFixed(2));
-let summ = (price111 + price222 + price333);
-let sum = summ/3;
-sum = sum.toFixed(2);
+const fixedApplePrice = Number(applePrice.toFixed(2));
+const fixedAvokadoPrice = Number(avokadoPrice.toFixed(2));
+const fixedMangoPrice = Number(mangoPrice.toFixed(2));
+const summOfFixedFruits = (fixedApplePrice + fixedAvokadoPrice + fixedMangoPrice);
+const sumDivededto3 = summOfFixedFruits/3;
+const sum = Number(sumDivededto3.toFixed(2));
 console.log(`Average mean is" ${sum}`);
 
 const discount = Math.random();
 console.log(`Your discount is ` + (discount.toFixed(2)));
-const priceWithDiscount = summ - discount;
+const priceWithDiscount = summOfFixedFruits - discount;
 console.log(`Price to pay is ` + (priceWithDiscount.toFixed(2)));
-nettoProfit = (summ/2) - discount;
+nettoProfit = (summOfFixedFruits/2) - discount;
 console.log(`Profit of netto is ` + (nettoProfit.toFixed(2)));
 
 
