@@ -32,4 +32,4 @@ for(let count = userNNumber; count <= userMNumber; count++){
         factorialFromNToM += count;
     }
 }
-console.log(factorialFromNToM)
+console.log(`Summ of all number from ${userNNumber} to ${userMNumber} is -  ${factorialFromNToM}`)
