@@ -24,14 +24,11 @@ function ceilTo100(num){
 }
 console.log("Sum rounded to 100 -", (ceilTo100(priceOfAllGoodsWithoutCoins)));
 
-let isSumEven = true;
-if (priceOfAllGoodsWithoutCoins % 2 !== 0){
-    isSumEven = false;
-}
-console.log(`Is the sum of all goods an even number? ${isSumEven} `);
+const isSumEven = priceOfAllGoodsWithoutCoins % 2 === 0;
+console.log(isSumEven ? `The price of all goods is even number? ${isSumEven}` : `The price of all goods is even number? ${isSumEven}`);
 
-
-console.log(`The rest from 500 is`, (500 - priceOfAllGoods).toFixed(2));
+const restFrom500 = Number(500 - priceOfAllGoods).toFixed(2);
+console.log(`The rest from 500 is ${restFrom500}`);
 
 const fixedApplePrice = Number(applePrice.toFixed(2));
 const fixedAvokadoPrice = Number(avokadoPrice.toFixed(2));
@@ -42,10 +39,8 @@ const sum = Number(sumDivededto3.toFixed(2));
 console.log(`Average mean is" ${sum}`);
 
 const discount = Math.random();
-console.log(`Your discount is ` + (discount.toFixed(2)));
-const priceWithDiscount = summOfFixedFruits - discount;
-console.log(`Price to pay is ` + (priceWithDiscount.toFixed(2)));
-nettoProfit = (summOfFixedFruits/2) - discount;
-console.log(`Profit of netto is ` + (nettoProfit.toFixed(2)));
-
-
+const fixedDiscount = Number(discount.toFixed(2));
+const priceWithDiscount = Number((summOfFixedFruits - fixedDiscount).toFixed(2));
+nettoProfit = Number(((summOfFixedFruits/2) - fixedDiscount).toFixed(2));
+console.log(`Price to pay is ${priceWithDiscount}`);
+console.log(`Profit of netto is ${nettoProfit}`);
