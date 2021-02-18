@@ -27,7 +27,8 @@ console.log("Sum rounded to 100 -", (ceilTo100(priceOfAllGoodsWithoutCoins)));
 const isSumEven = priceOfAllGoodsWithoutCoins % 2 === 0;
 console.log(isSumEven ? `The price of all goods is even number? ${isSumEven}` : `The price of all goods is even number? ${isSumEven}`);
 
-const restFrom500 = Number(500 - priceOfAllGoods).toFixed(2);
+const magicNum = 500;
+const restFrom500 = Number(magicNum - priceOfAllGoods).toFixed(2);
 console.log(`The rest from 500 is ${restFrom500}`);
 
 const fixedApplePrice = Number(applePrice.toFixed(2));
