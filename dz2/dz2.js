@@ -3,14 +3,14 @@ do {
     userNNumber = parseInt(prompt('Put down your number'));
 } while(Number.isNaN(userNNumber));
 
-console.log(`You wrote down the N-numer ${userNNumber}`);
+console.log(`You wrote down the N-number ${userNNumber}`);
 
 let userMNumber;
 do {
     userMNumber = parseInt(prompt('Put down your number'));
 } while(Number.isNaN(userMNumber));
 
-console.log(`You wrote down the M-numer ${userMNumber}`);
+console.log(`You wrote down the M-number ${userMNumber}`);
 
 function missEvenNumber() {
     if(confirm("Do you want to miss all even numbers? Are you sure?")){
