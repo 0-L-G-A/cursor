@@ -1,44 +1,36 @@
-//1. Отримайте у користувача число(N) від якого ми будемо складати. 
-//Отримати число можна за допомогою prompt. Пам'ятайте, ЧИСЛО, не РЯДОК!
-//2.Перевірте, чи є передане значення N ЦІЛИМ числом. 
-//(Підказка: якщо при конвертації в ціле число ми отримали NaN – це число нам не підходить)
-let userNNumber;
+let firstInputedNumber;
 do {
-    userNNumber = parseInt(prompt('Put down first(smaller than second) N-number'));
-} while(Number.isNaN(userNNumber));
-console.log(`You wrote down the N-number ${userNNumber}`);
+    firstInputedNumber = parseInt(prompt('Put down first number'));
+} while(Number.isNaN(firstInputedNumber));
+console.log('%c%s', 'font: 1.4em/1 Arial;' ,`You wrote down number ${firstInputedNumber}`);
 
-//3.Отримайте у користувача число(M) до якого ми будемо складати (включно).
-//4.Перевірте, чи є передане значення M ЦІЛИМ числом. 
-let userMNumber;
+let secondInputedNumber;
 do {
-    userMNumber = parseInt(prompt('Put down second(bigger than first) M-number'));
-} while(Number.isNaN(userMNumber));
-console.log(`You wrote down the M-number. It is ${userMNumber}`);
+    secondInputedNumber = parseInt(prompt('Good job. Put down your second number'));
+} while(Number.isNaN(secondInputedNumber));
+console.log('%c%s', 'font: 1.4em/1 Arial;' ,`You wrote down second number. It is ${secondInputedNumber}`);
 
-//5.Отримайте у користувача булевий параметр(true/false), який підкаже нам чи потрібно 
-//пропускати парні числа. TRUE – потрібно, FALSE – не потрібно. Використовуйте функцію confirm.
-function missEvenNumber() {
-    if(confirm("Do you want to miss all even numbers? Are you sure?")){
-        return true;
-    }else{
-        return false;
-    }
+let missEvenNumbers;
+confirm("Do you want to miss all even numbers? Are you sure?") ? missEvenNumbers = true : missEvenNumbers = false;
+
+let smallerNumber;
+let biggerNumber;
+
+if (firstInputedNumber > secondInputedNumber) {
+    smallerNumber = secondInputedNumber;
+    biggerNumber = firstInputedNumber;
+}else{
+    smallerNumber = firstInputedNumber;
+    biggerNumber = secondInputedNumber;
 }
-const trueOrFalse = missEvenNumber();
 
-//6.Напишіть цикл, який буде складати числа від раніше отриманих N и M
-//7.В циклі додайте перевірку – чи потрібно пропускати при складанні парні числа. 
-//9.Виведіть результат
 let factorialFromNToM = 0;
-for(let count = userNNumber; count <= userMNumber; count++){
-    if(trueOrFalse === true){
+for(let count = smallerNumber; count <= biggerNumber; count++){
+    if(missEvenNumbers){
         if(count % 2 === 0){
             continue;
-        }
-        factorialFromNToM += count;
-    }else{
-        factorialFromNToM += count;
+        }   
     }
+    factorialFromNToM += count;
 }
-console.log(`Summ of all number from ${userNNumber} to ${userMNumber} is -  ${factorialFromNToM}`)
+console.log('%c%s', 'color: crimson; font: 1.6em/1 Arial;' , `Sum of all number from ${smallerNumber} to ${biggerNumber} is -  ${factorialFromNToM}`)
