@@ -5,6 +5,7 @@ function getMaxDigit(number){
     const arrayOfDigits = Array.from(String(numToSeparate), Number);
     return Math.max.apply(Math, arrayOfDigits);
 }
+
 console.log(`FUNKTION 1. Max digit is ${getMaxDigit(855)}`);
 
 //Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
@@ -52,4 +53,20 @@ function countLetter(letter, word){
 }
 console.log(`FUNKTION 6. Sum of letter "f" in word "difference" is ${countLetter("f", "difference")}`);
 
-//
+//Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
+//Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
+//Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
+
+function convertCurrency(str){
+    if(str.includes("$") || str.includes("uah")){
+        if(str.includes("$")){
+            let dolToHr = str.replace("$","");
+            return (Number(dolToHr)*28) + 'uah';
+        }
+        if(str.includes("uah")){
+            let hrToDol = str.replace("uah","");
+            return (Number(hrToDol)/28) + '$';
+        }
+    }else{return "This currency aren't dollar or hryvnia"}
+}
+console.log(`FUNKTION 7. From 300$ we will have ${convertCurrency('350uah')}`);
