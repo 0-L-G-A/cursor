@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.301);
+}
+.main{
+    margin-left: 20pt;
+    display: flex;
+    width: 1200px;
+    height: 50px;
+    flex-direction: row;
+    justify-content: left;
+}
+h2{
+    color: rgb(78, 25, 25);
+    margin-top: 10pt;
+    margin-left: 20pt;
+}
+.call{
+    height: 45px;
+    width: 150px;
+    margin-left: 10pt;
+    background-color: rgba(236, 229, 229, 0.143);
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    border-radius: 50%;
+}

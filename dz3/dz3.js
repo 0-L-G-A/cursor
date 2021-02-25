@@ -1,14 +1,10 @@
-//Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. 
-//Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 function getMaxDigit(number){
     const numToSeparate = number;
     const arrayOfDigits = Array.from(String(numToSeparate), Number);
     return Math.max.apply(Math, arrayOfDigits);
 }
+document.writeln(`<div class="main"> <h2> FUNCTION 1. </h2> <h3> Max digit from 4572 is: </h3> <div class="call"> <h2> ${getMaxDigit(4572)} </h2> </div> </div>`);
 
-console.log(`FUNKTION 1. Max digit is ${getMaxDigit(855)}`);
-
-//Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 function raiseToPower(number, power){
     let sum = number;
     for(let i = 1; i < power; i++){
@@ -16,32 +12,27 @@ function raiseToPower(number, power){
     }
     return sum;
 }
-console.log(`FUNKTION 2. Third power of 4 is ${raiseToPower(4, 3)}`);
+document.writeln(`<div class="main"> <h2> FUNCTION 2. </h2> <h3> Third power of 4 is: </h3> <div class="call"> <h2> ${raiseToPower(4, 3)} </h2> </div></div>`);
 
-//Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 function formatName(name){
     String(name);
     let nameAfterFormatting = (name.slice(0, 1)).toUpperCase() + (name.slice(1)).toLowerCase();
     return nameAfterFormatting;
 }
-console.log(`FUNKTION 3. Formated name is ${formatName("olha")}`);
+document.writeln(`<div class="main"> <h2>FUNCTION 3.</h2> <h3> Formated name from "olha" is: </h3> <div class="call"> <h2> ${formatName("olha")} </h2> </div></div>`);
 
-//Створити функцію, яка вираховує суму, що залишається після оплати податку від зарoбітньої плати. 
-//(Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
 function getNettoSalary(salary){
     const taxes = 18 + 1.5;
     let salaryAfterTaxes = (Number(salary)) - ((Number(salary)/100)*taxes);
     return salaryAfterTaxes;
 }
-console.log(`FUNKTION 4. Your salary after taxes is ${getNettoSalary(12500)}.`)
+document.writeln(`<div class="main"><h2>FUNCTION 4.</h2> <h3> Your salary after taxes was: 12500. Your salary after taxes is: </h3> <div class="call"> <h2> ${getNettoSalary(12500)}</h2> </div></div>`);
 
-//Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 function getRandomNumber(min, max){
-    return Number(Math.random()*(max-min)+min).toFixed(1);
+    return Number(Math.random()*(max-min)+min).toFixed();
 }
-console.log(`FUNKTION 5. Random number is ${getRandomNumber(1, 100)}.`);
+document.writeln(`<div class="main"><h2>FUNCTION 5.</h2> <h3> Random number from 1 to 100 is: </h3> <div class="call"> <h2> ${getRandomNumber(1, 100)} </h2> </div></div>`);
 
-//Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
 function countLetter(letter, word){
     let sumOfLetter = 0;
     for(let i = 0; i <= word.length; i++){
@@ -51,11 +42,7 @@ function countLetter(letter, word){
     }
     return sumOfLetter;
 }
-console.log(`FUNKTION 6. Sum of letter "f" in word "difference" is ${countLetter("f", "difference")}`);
-
-//Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
-//Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
-//Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
+document.writeln(`<div class="main"><h2>FUNCTION 6.</h2> <h3> Sum of letter "f" in word "difference" is: </h3> <div class="call"> <h2> ${countLetter("f", "difference")} </h2> </div></div>`);
 
 function convertCurrency(str){
     if(str.includes("$") || str.includes("uah")){
@@ -69,4 +56,14 @@ function convertCurrency(str){
         }
     }else{return "This currency aren't dollar or hryvnia"}
 }
-console.log(`FUNKTION 7. From 300$ we will have ${convertCurrency('350uah')}`);
+document.writeln(`<div class="main"><h2>FUNCTION 7.</h2> <h3> From 300$ we will have: </h3> <div class="call"> <h2> ${convertCurrency('350uah')} </h2> </div></div>`);
+
+function getRandomPassword(len = '8'){
+    let password = "";
+    let symbols = "abcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < len; i++){
+        password += symbols.charAt(Math.floor(Math.random() * symbols.length));     
+    }
+    return password;
+}
+document.writeln(`<div class="main"><h2>FUNCTION 8.</h2> <h3> Random password, which has length 10 is: </h3> <div class="call"> <h2> ${getRandomPassword(10)} </h2> </div></div>`);
