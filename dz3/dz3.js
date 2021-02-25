@@ -26,7 +26,7 @@ function getNettoSalary(salary){
     let salaryAfterTaxes = (Number(salary)) - ((Number(salary)/100)*taxes);
     return salaryAfterTaxes;
 }
-document.writeln(`<div class="main"><h2>FUNCTION 4.</h2> <h3> Your salary after taxes was: 12500. Your salary after taxes is: </h3> <div class="call"> <h2> ${getNettoSalary(12500)}</h2> </div></div>`);
+document.writeln(`<div class="main"><h2>FUNCTION 4.</h2> <h3> Your salary before taxes was: 12500. Your salary after taxes is: </h3> <div class="call"> <h2> ${getNettoSalary(12500)}</h2> </div></div>`);
 
 function getRandomNumber(min, max){
     return Number(Math.random()*(max-min)+min).toFixed();
