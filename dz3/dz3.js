@@ -67,3 +67,22 @@ function getRandomPassword(len = '8'){
     return password;
 }
 document.writeln(`<div class="main"><h2>FUNCTION 8.</h2> <h3> Random password, which has length 10 is: </h3> <div class="call"> <h2> ${getRandomPassword(10)} </h2> </div></div>`);
+
+function deleteLettter(letter, string){
+    const arraiys = string.split("");
+    let filtered = arraiys.filter(function(value, index, arr){ 
+        return value !== letter && value !== letter.toUpperCase();
+    });
+    return filtered.join("");
+ }
+document.writeln(`<div class="main"><h2>FUNCTION 9.</h2> <h3> String "baBa Katyaba" after deleting letter "b" is: </h3> <div class="call"> <h2> ${deleteLettter("b", "baBa Katyaba")} </h2> </div></div>`);
+
+ function isPalindrom(str){
+    const arraiys = (str.toLowerCase()).split("");
+    const filteredArr = arraiys.filter(function(value, index, arr){ 
+        return value !== " ";
+    });
+    const filteredStr = filteredArr.join("");
+    return (filteredStr === filteredArr.reverse().join(""));
+}
+document.writeln(`<div class="main"><h2>FUNCTION 10.</h2> <h3> Is string "DafFad" the palindrom: </h3> <div class="call"> <h2> ${isPalindrom("DafFad")} </h2> </div></div>`);
