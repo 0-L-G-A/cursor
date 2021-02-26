@@ -1,6 +1,5 @@
 function getMaxDigit(number){
-    const numToSeparate = number;
-    const arrayOfDigits = Array.from(String(numToSeparate), Number);
+    const arrayOfDigits = Array.from(String(number), Number);
     return Math.max.apply(Math, arrayOfDigits);
 }
 document.writeln(`<div class="main"> <h2> FUNCTION 1. </h2> <h3> Max digit from 4572 is: </h3> <div class="call"> <h2> ${getMaxDigit(4572)} </h2> </div> </div>`);
@@ -16,15 +15,13 @@ document.writeln(`<div class="main"> <h2> FUNCTION 2. </h2> <h3> Third power of 
 
 function formatName(name){
     String(name);
-    let nameAfterFormatting = (name.slice(0, 1)).toUpperCase() + (name.slice(1)).toLowerCase();
-    return nameAfterFormatting;
+    return (name.slice(0, 1)).toUpperCase() + (name.slice(1)).toLowerCase();
 }
 document.writeln(`<div class="main"> <h2>FUNCTION 3.</h2> <h3> Formated name from "olha" is: </h3> <div class="call"> <h2> ${formatName("olha")} </h2> </div></div>`);
 
 function getNettoSalary(salary){
     const taxes = 18 + 1.5;
-    let salaryAfterTaxes = (Number(salary)) - ((Number(salary)/100)*taxes);
-    return salaryAfterTaxes;
+    return (Number(salary)) - ((Number(salary)/100)*taxes);
 }
 document.writeln(`<div class="main"><h2>FUNCTION 4.</h2> <h3> Your salary before taxes was: 12500. Your salary after taxes is: </h3> <div class="call"> <h2> ${getNettoSalary(12500)}</h2> </div></div>`);
 
@@ -47,20 +44,20 @@ document.writeln(`<div class="main"><h2>FUNCTION 6.</h2> <h3> Sum of letter "f" 
 function convertCurrency(str){
     if(str.includes("$") || str.includes("uah")){
         if(str.includes("$")){
-            let dolToHr = str.replace("$","");
+            const dolToHr = str.replace("$","");
             return (Number(dolToHr)*28) + 'uah';
         }
         if(str.includes("uah")){
-            let hrToDol = str.replace("uah","");
+            const hrToDol = str.replace("uah","");
             return (Number(hrToDol)/28) + '$';
         }
     }else{return "This currency aren't dollar or hryvnia"}
 }
-document.writeln(`<div class="main"><h2>FUNCTION 7.</h2> <h3> From 300$ we will have: </h3> <div class="call"> <h2> ${convertCurrency('350uah')} </h2> </div></div>`);
+document.writeln(`<div class="main"><h2>FUNCTION 7.</h2> <h3> From 300uah we will have: </h3> <div class="call"> <h2> ${convertCurrency('350uah')} </h2> </div></div>`);
 
 function getRandomPassword(len = '8'){
     let password = "";
-    let symbols = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const symbols = "abcdefghijklmnopqrstuvwxyz0123456789";
     for (var i = 0; i < len; i++){
         password += symbols.charAt(Math.floor(Math.random() * symbols.length));     
     }
