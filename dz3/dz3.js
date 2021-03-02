@@ -12,7 +12,7 @@ function raiseToPower(number, power){
         return "OOPS!"  
     }
 }
-document.writeln(`<div class="main"> <h2> FUNCTION 2. </h2> <h3> Third power of 4 is: </h3> <div class="call"> <h2> ${raiseToPower(4, 0)} </h2> </div></div>`);
+document.writeln(`<div class="main"> <h2> FUNCTION 2. </h2> <h3> Third power of 4 is: </h3> <div class="call"> <h2> ${raiseToPower(4, 3)} </h2> </div></div>`);
 
 function formatName(name){
     String(name);
