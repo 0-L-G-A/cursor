@@ -1,40 +1,92 @@
-
-//Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
-//У функції є параметри: length - довжина масиву, min – мінімальне значення цілого числа, 
-//max – максимальне значення цілого числа. 
-//Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2]
-
 const getRandomArray = (length, min, max) => {return randomArray = Array.from(Array(length)).map(x=>Number(Math.random()*(max-min)+min).toFixed())}
-console.log(getRandomArray(4, 1, 10));
 
-//Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
-//Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
-
-function getModa(arrayForGetModa) {
-    let modecount = [];
-    let valueArr = [];
-    let dataSet = new Set(arrayForGetModa);
-    for (const iterator of dataSet) {
-      const filteredNum = arrayForGetModa.filter((num) => iterator === num);
-      modecount.push({
-        mode: iterator,
-        count: filteredNum.length
+const arrayForGetModa = getRandomArray(10, 1, 20);
+//let arrayForGetModa = [1, 1, 2, 2.5, 2.2, 3, 4, 5, 6, 6, 7, 9, 10, 13, 16];
+function getModa(arr) {
+    let arrayOfObjects = []; 
+    let modedArr = [];
+    let uniqueArray = new Set(arr); 
+    for (const i of uniqueArray) {  
+      if (!Number.isInteger(Number(i))){continue}
+      const filteredNum = arr.filter((num) => i === num); 
+      arrayOfObjects.push({
+        number: i,
+        frequency: filteredNum.length
       });
     }
   
-    modecount.sort((a, b) => {
-      return b.count - a.count;
+    arrayOfObjects.sort((a, b) => {
+      return b.frequency - a.frequency;
     });
   
-    modecount.forEach(value => {
-      if (value.count === modecount[0].count) {
-        valueArr.push(value.mode);
+    arrayOfObjects.forEach(value => {
+      if (value.frequency === arrayOfObjects[0].frequency) {
+        modedArr.push(value.number);
       }
     });
   
-    return valueArr;
+    return modedArr;
   }
 
-  let arrayForGetModa = getRandomArray(10, 1, 20);
-  console.log(arrayForGetModa);
-  console.log(getModa(arrayForGetModa));
+const arrayForGetAverage = [1, 2.5, 3, 4, 6, 6.7, 7, 9];
+function getAverage(arr){
+  let filteredArray = [];
+  arr.forEach((item)=>{if(Number.isInteger(item)){filteredArray.push(item)}});
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return (filteredArray.reduce(reducer))/filteredArray.length;
+}
+ 
+const arrayForMedian = [12, 7, 2, 8, 10, 4, 6, 3, 5.5, 6.4];
+function getMedian(arr){
+  let filteredArray = [];
+  let median = [];
+  arr.forEach((item)=>{if(Number.isInteger(item)){filteredArray.push(item)}});
+  const sortedArray = filteredArray.sort((a, b) => a - b);
+  const halfLengthOfSortedArray = Math.floor(sortedArray.length/2);
+  if(sortedArray.length % 2 === 0){
+    median = (sortedArray[halfLengthOfSortedArray - 1] + sortedArray[halfLengthOfSortedArray])/2;
+  }else{
+    median = sortedArray[halfLengthOfSortedArray];
+  }
+return median;
+}
+
+const arrayForFilterEvenNumbers = [1, 2, 5, 6, 8, 9, 13, 15, 20];
+function filterEvenNumbers(arr){
+  const filteredArray = arr.filter((element) => !(element % 2 === 0));
+  return filteredArray;
+}
+
+
+
+
+
+
+
+//1
+console.log(`Random array from 1 to 10. It has 4 elements: ${getRandomArray(4, 1, 10)}`);
+console.log(`-----------------`);
+//2
+console.log(`I created array from 1 to 20. It has 10 elements:`);
+console.log(arrayForGetModa);
+console.log(`Moda of my array: ${getModa(arrayForGetModa)}`);
+console.log(`-----------------`);
+//3
+console.log(`Array for getAwerage function: `);
+console.log(arrayForGetAverage);
+console.log(`Average number of array:`);
+console.log(getAverage(arrayForGetAverage));
+console.log(`-----------------`);
+//4
+console.log(`Array for getMedian function:`);
+console.log(arrayForMedian);
+console.log(`Median of array:`);
+console.log(getMedian(arrayForMedian));
+console.log(`-----------------`);
+//5
+console.log(`Array for filterEvenNumbers function:`);
+console.log(arrayForFilterEvenNumbers);
+console.log(`Filtered array with only odd numbers:`);
+console.log(filterEvenNumbers(arrayForFilterEvenNumbers));
+console.log(`-----------------`);
+//6
