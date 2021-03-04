@@ -57,36 +57,55 @@ function filterEvenNumbers(arr){
   return filteredArray;
 }
 
+const arrayOfDifferentNumbers = [-5, -4, -1, 0, 2, 5, 7];
+function countPositiveNumbers(arr){
+  const filteredArray = arr.filter((element) => element > 0);
+  return filteredArray.length;
+}
 
-
-
-
-
+//Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
+//Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
+const arrayForDividing = [5, 8, 20, 6, 44, 50, 35, 88];
+function getDividedByFive(arr){
+  const filteredArray = arr.filter((element) => (element % 5 === 0));
+  return filteredArray;
+}
 
 //1
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 1--------`);
 console.log(`Random array from 1 to 10. It has 4 elements: ${getRandomArray(4, 1, 10)}`);
-console.log(`-----------------`);
 //2
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 2--------`);
 console.log(`I created array from 1 to 20. It has 10 elements:`);
 console.log(arrayForGetModa);
 console.log(`Moda of my array: ${getModa(arrayForGetModa)}`);
-console.log(`-----------------`);
 //3
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 3--------`);
 console.log(`Array for getAwerage function: `);
 console.log(arrayForGetAverage);
 console.log(`Average number of array:`);
 console.log(getAverage(arrayForGetAverage));
-console.log(`-----------------`);
 //4
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 4--------`);
 console.log(`Array for getMedian function:`);
 console.log(arrayForMedian);
 console.log(`Median of array:`);
 console.log(getMedian(arrayForMedian));
-console.log(`-----------------`);
 //5
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 5--------`);
 console.log(`Array for filterEvenNumbers function:`);
 console.log(arrayForFilterEvenNumbers);
 console.log(`Filtered array with only odd numbers:`);
 console.log(filterEvenNumbers(arrayForFilterEvenNumbers));
-console.log(`-----------------`);
 //6
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 6--------`);
+console.log(`Array for countPositiveNumbers function:`);
+console.log(arrayOfDifferentNumbers);
+console.log(`Filtered array with only positive numbers:`);
+console.log(countPositiveNumbers(arrayOfDifferentNumbers));
+//7
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 7--------`);
+console.log(`Array for dividing by 5 function:`);
+console.log(arrayForDividing);
+console.log(`Filtered array with numbers, which we can divide by 5:`);
+console.log(getDividedByFive(arrayForDividing));
