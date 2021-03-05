@@ -1,7 +1,6 @@
 const getRandomArray = (length, min, max) => {return randomArray = Array.from(Array(length)).map(x=>Number(Math.random()*(max-min)+min).toFixed())}
 
-const arrayForGetModa = getRandomArray(10, 1, 20);
-//let arrayForGetModa = [1, 1, 2, 2.5, 2.2, 3, 4, 5, 6, 6, 7, 9, 10, 13, 16];
+const arrayForGetModa = [1, 1, 2, 2.5, 2.2, 3, 4, 5, 6, 6, 7, 9, 10, 13, 16];
 function getModa(arr) {
     let arrayOfObjects = []; 
     let modedArr = [];
@@ -9,67 +8,44 @@ function getModa(arr) {
     for (const i of uniqueArray) {  
       if (!Number.isInteger(Number(i))){continue}
       const filteredNum = arr.filter((num) => i === num); 
-      arrayOfObjects.push({
-        number: i,
-        frequency: filteredNum.length
-      });
+      arrayOfObjects.push({ number: i, frequency: filteredNum.length });
     }
   
-    arrayOfObjects.sort((a, b) => {
-      return b.frequency - a.frequency;
-    });
+    arrayOfObjects.sort((a, b) => {return b.frequency - a.frequency});
   
     arrayOfObjects.forEach(value => {
       if (value.frequency === arrayOfObjects[0].frequency) {
         modedArr.push(value.number);
       }
     });
-  
     return modedArr;
   }
 
 const arrayForGetAverage = [1, 2.5, 3, 4, 6, 6.7, 7, 9];
 function getAverage(arr){
-  let filteredArray = [];
-  arr.forEach((item)=>{if(Number.isInteger(item)){filteredArray.push(item)}});
+  const filteredArray = arr.filter((element) => Number.isInteger(element));
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   return (filteredArray.reduce(reducer))/filteredArray.length;
-}
+  }
  
 const arrayForMedian = [12, 7, 2, 8, 10, 4, 6, 3, 5.5, 6.4];
 function getMedian(arr){
-  let filteredArray = [];
   let median = [];
-  arr.forEach((item)=>{if(Number.isInteger(item)){filteredArray.push(item)}});
+  const filteredArray = arr.filter((element) => Number.isInteger(element));
   const sortedArray = filteredArray.sort((a, b) => a - b);
   const halfLengthOfSortedArray = Math.floor(sortedArray.length/2);
-  if(sortedArray.length % 2 === 0){
-    median = (sortedArray[halfLengthOfSortedArray - 1] + sortedArray[halfLengthOfSortedArray])/2;
-  }else{
-    median = sortedArray[halfLengthOfSortedArray];
+  sortedArray.length % 2 === 0 ? median = (sortedArray[halfLengthOfSortedArray - 1] + sortedArray[halfLengthOfSortedArray])/2 : median = sortedArray[halfLengthOfSortedArray];
+  return median;
   }
-return median;
-}
 
 const arrayForFilterEvenNumbers = [1, 2, 5, 6, 8, 9, 13, 15, 20];
-function filterEvenNumbers(arr){
-  const filteredArray = arr.filter((element) => !(element % 2 === 0));
-  return filteredArray;
-}
+const filterEvenNumbers = (arr) => {return arr.filter((element) => !(element % 2 === 0))};
 
 const arrayOfDifferentNumbers = [-5, -4, -1, 0, 2, 5, 7];
-function countPositiveNumbers(arr){
-  const filteredArray = arr.filter((element) => element > 0);
-  return filteredArray.length;
-}
+const countPositiveNumbers = (arr) => {return arr.filter((element) => element > 0)};
 
-//Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
-//Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
 const arrayForDividing = [5, 8, 20, 6, 44, 50, 35, 88];
-function getDividedByFive(arr){
-  const filteredArray = arr.filter((element) => (element % 5 === 0));
-  return filteredArray;
-}
+const getDividedByFive = (arr) => {return arr.filter((element) => (element % 5 === 0))}
 
 //1
 console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 1--------`);
@@ -101,7 +77,7 @@ console.log(filterEvenNumbers(arrayForFilterEvenNumbers));
 console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 6--------`);
 console.log(`Array for countPositiveNumbers function:`);
 console.log(arrayOfDifferentNumbers);
-console.log(`Filtered array with only positive numbers:`);
+console.log(`Filtered array with only positive numbers has a length:`);
 console.log(countPositiveNumbers(arrayOfDifferentNumbers));
 //7
 console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 7--------`);
