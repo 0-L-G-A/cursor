@@ -24,42 +24,72 @@ const students = [{
     }
   }];
   
-  //Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів 
-  //для конкретного студента. Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
-
   function getSubjects(student){
     const arrayOfSubjects = Object.keys(student.subjects);
     const newArray = arrayOfSubjects.map((item) => {return (item.charAt(0).toUpperCase() + item.slice(1)).replace("_", " ")});
     return newArray;
     }
 
-  console.log(getSubjects(students[0]));
-
-  //Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента 
-  //НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функції, написані у попередніх домашніх завданнях :)
-
   function getAverageMark(student){
     const allMarks = (Object.values(student.subjects)).flat(1);
     return (allMarks.reduce((a, b) => a + b)/allMarks.length).toFixed(2);
   }
 
-  console.log(getAverageMark(students[0]));
+  function getStudentInfo(student){
+    const avMark = getAverageMark(student);
+    const studentInfo = {
+      course: student.course,
+      name: student.name,
+      averageMark: avMark
+    }
+    return studentInfo;
+  }
 
-  //Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає інформацію 
-  //загального виду по переданому студенту (вам знадобиться функція з попереднього завдання). ПОвинна бути виведена інформація: 
-  //курс, ім'я, середня оцінка.
+  function getStudentsNames(students){
+    const studentsNames = students.map(student => student.name);
+    return studentsNames.sort();
+  }
 
+  function getBestStudent(students){
+    let res = [];
+    for (const i of students) {  
+      res.push({ name: i.name, averageMark: getAverageMark(i) });
+    }
+    res.sort((a, b) => {return b.averageMark - a.averageMark});
+    return res[0].name;
+  }
 
+  function calculateWordLetters(word){
+    let res = {};
+    let mySet = new Set(word.toLowerCase()); 
+    for (const i of mySet){
+      amountSameLetters = ((word.toLowerCase()).split('')).filter((letter) => i === letter); 
+      res[i] = amountSameLetters.length;
+    }
+    return res;
+  }
 
-
-  //Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
-
-
-
-
-  //Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
-
-
-
-  //Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, 
-  //а значення – кількість їх повторень.
+//1
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 1--------`);
+console.log(`Функція, що повертає список предметів для окремого студента`);
+console.log(getSubjects(students[0]));
+//2
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 2--------`);
+console.log(`Функція, що повертає середню оцінку по усім предметам для переданого студента`);
+console.log(getAverageMark(students[0]));
+//3
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 3--------`);
+console.log(`Функція, що повертає курс, імя і середню оцінку студента `);
+console.log(getStudentInfo(students[0]));
+//4
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 4--------`);
+console.log(`Функція, що повертає імена студентів у алфавітному порядку`);
+console.log(getStudentsNames(students));
+//5
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 5--------`);
+console.log(`Функція, яка повертає кращого студента зі списку по показнику середньої оцінки`);
+console.log(getBestStudent(students));
+//6
+console.log('%c%s', 'color: green; font: bold 1.6em/1 Arial; background: linear-gradient( paleGreen , powderBlue);' ,`---------FUNCTION 6--------`);
+console.log(`Функція, яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.`);
+console.log(calculateWordLetters("Test"));
