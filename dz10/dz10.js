@@ -27,7 +27,7 @@ function getRandomColor(){
 const generateBlocksInterval = function() {
     setInterval(() => {
         const squares = document.querySelectorAll(".square");
-        Array.from(squares.forEach((square) => {square.style.backgroundColor = getRandomColor()}))
+        squares.forEach((square) => {square.style.backgroundColor = getRandomColor()})
     }, 1000);
 }
 
