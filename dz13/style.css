@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    background-color: rgba(233, 186, 116, 0.301);
+}
+
+header {
+    height: 70px;
+    width: auto;
+    background-color: rgb(228, 153, 40);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.button {
+  height: 40px;  
+  background-color: #8f3144;
+  border: 2px double white;
+  color: white;
+  padding: 5px 30px;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+
+.char {
+    width: 24%;
+    height: 200px;
+    text-align: center;
+    border: 5px double black;
+}
+
+.planets {
+    width: 24%;
+    height: 200px;
+    text-align: center;
+    border: 5px double black;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+    margin: auto;
+    width: 90%;
+    margin-top: 30px;
+}
+
+img {
+    width: 150px;
+    height: 100px;
+}
