@@ -7,17 +7,19 @@ let url = '';
 const container = document.getElementById('container');
 const body = document.querySelector('body');
 
-
 function getData(url, foo){
+    if (url.slice(0, 5) ===  'http:') url.replace('http', 'https')
     axios.get(url).then(response => foo(response.data));
     console.log(url)
     }
 
 function showCharacters(data){
     if(container.hasChildNodes()){container.querySelectorAll('*').forEach(node => node.remove());}
-    
     data.characters.forEach(async user => {
-        console.log(user)
+        console.log('userBe', user)
+        if (user.slice(0, 5) === 'http:') user = user.replace('http', 'https')
+        console.log('userAf', user)
+
         let useri = await axios.get(user)
 
         let name = useri.data.name;
@@ -27,7 +29,6 @@ function showCharacters(data){
         const element = document.createElement('div');
         container.appendChild(element);
         element.classList.add('char')
-        
 
         function createElement(data, typeOfChildName){
             const childName = document.createElement(typeOfChildName)
@@ -38,7 +39,8 @@ function showCharacters(data){
         createElement(name, 'h2');
         createElement(dateOfBirth, 'h5')
         createElement(gender, 'h4')
-     
+        
+
     });
 }
 
@@ -72,4 +74,3 @@ function showPlanets(data){
     getNextButton.addEventListener('click', () => getData(url, showPlanets));
     
 }
-
