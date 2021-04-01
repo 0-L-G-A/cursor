@@ -1,3 +1,4 @@
+console.log('VERSION 3')
 const getInfoButton = document.getElementById('getInfo');
 getInfoButton.addEventListener('click', () => getData('https://swapi.dev/api/films/2/', showCharacters));
 const getPlanetsButton = document.getElementById('getPlanets');
@@ -10,15 +11,12 @@ const body = document.querySelector('body');
 function getData(url, foo){
     if (url.slice(0, 5) ===  'http:') url.replace('http', 'https')
     axios.get(url).then(response => foo(response.data));
-    console.log(url)
     }
 
 function showCharacters(data){
     if(container.hasChildNodes()){container.querySelectorAll('*').forEach(node => node.remove());}
     data.characters.forEach(async user => {
-        console.log('userBe', user)
         if (user.slice(0, 5) === 'http:') user = user.replace('http', 'https')
-        console.log('userAf', user)
 
         let useri = await axios.get(user)
 
@@ -39,18 +37,16 @@ function showCharacters(data){
         createElement(name, 'h2');
         createElement(dateOfBirth, 'h5')
         createElement(gender, 'h4')
-        
 
     });
 }
 
 function showPlanets(data){
     url = data.next;
+    if (url.slice(0, 5) ===  'http:') url = url.replace('http', 'https')
     if(container.hasChildNodes()){container.querySelectorAll('*').forEach(node => node.remove());}
-    console.log(data)
     data.results.forEach(async planet => {
         const name = planet.name;
-        console.log(name)
         
         const element = document.createElement('div');
         container.appendChild(element);
@@ -72,5 +68,4 @@ function showPlanets(data){
     getNextButton.innerHTML = 'NEXT'
     body.append(getNextButton) 
     getNextButton.addEventListener('click', () => getData(url, showPlanets));
-    
 }
