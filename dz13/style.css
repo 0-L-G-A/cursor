@@ -28,14 +28,14 @@ header {
 
 .char {
     width: 24%;
-    height: 200px;
+    height: 150px;
     text-align: center;
     border: 5px double black;
 }
 
 .planets {
     width: 24%;
-    height: 200px;
+    height: 100px;
     text-align: center;
     border: 5px double black;
 }

@@ -15,6 +15,7 @@ function getData(url, foo){
 
 function showCharacters(data){
     if(container.hasChildNodes()){container.querySelectorAll('*').forEach(node => node.remove());}
+    if(document.getElementById('next')){ getNextButton.remove()};
     data.characters.forEach(async user => {
         if (user.slice(0, 5) === 'http:') user = user.replace('http', 'https')
 
