@@ -5,7 +5,9 @@ function playAudioForMouse(event){
     const parent = event.target.closest('div');
     const sound = parent.querySelector('audio')
     const playingSound = [...audios].find(item => !item.paused);
-    if(playingSound){playingSound.pause()}
+    if(playingSound){
+        playingSound.currentTime = 0;
+        playingSound.pause()}
     sound.play()
 }
 
@@ -15,7 +17,9 @@ function playAudioForKey(event){
     const parent = document.querySelector('#' + (event.code))
     const sound = parent.querySelector('audio');
     const playingSound = [...audios].find(item => !item.paused);
-    if(playingSound){playingSound.pause()}
+    if(playingSound){
+        playingSound.currentTime = 0;
+        playingSound.pause()}
     sound.play()
 }
 
