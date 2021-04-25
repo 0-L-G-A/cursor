@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config dev.webpack.config.js",
+    "build": "webpack --config prod.webpack.config.js",
     "dev": "webpack serve --config dev.webpack.config.js",
     "babel": "babel --presets es2015 index.js -o src/index.js"
   },
