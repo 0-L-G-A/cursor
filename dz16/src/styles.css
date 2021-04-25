@@ -1,0 +1,97 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("assets/img/39fb0c998d43de282c9bd7405b241a9c.jpg") center;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.main-container11{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container11 {
+    position: relative;
+    width: 204px;
+    height: 204px;
+    background-color: rgb(237, 239, 243);
+    border-radius: 10px;
+    /* background: url('assets/img/cat.jpg'); */
+    background-size: contain;
+  }
+.container11 img {
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+    border-radius: 10px;
+  }
+.container11 .btn11 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.774);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+.btn11 {
+    font-weight: bold; 
+   }
+
+header {
+    height: 70px;
+    width: auto;
+    background-color: rgb(228, 153, 40);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.button13 {
+  height: 40px;  
+  background-color: #8f3144;
+  border: 2px double white;
+  color: white;
+  padding: 5px 30px;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+
+.char13 {
+    width: 24%;
+    height: 150px;
+    text-align: center;
+    border: 5px double black;
+}
+
+.planets13 {
+    width: 24%;
+    height: 100px;
+    text-align: center;
+    border: 5px double black;
+}
+
+#container13{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+    margin: auto;
+    width: 90%;
+    margin-top: 30px;
+}
